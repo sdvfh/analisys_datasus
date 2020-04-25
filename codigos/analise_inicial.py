@@ -96,8 +96,9 @@ df = df.dropna()
 
 # %%
 data = df[['idade_obito_calculado',
-           'ocor_LATITUDE', 'ocor_LONGITUDE', 'ocor_ALTITUDE']]
-
+           'ocor_LATITUDE', 'ocor_LONGITUDE', 'ocor_ALTITUDE',
+           'SEXO', 'RACACOR', 'ESTCIV', 'ESC']]
+del df
 # %%
 sm = SOMFactory().build(data.values,
                         [100, 100],
