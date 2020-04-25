@@ -1,0 +1,166 @@
+﻿Coluna;Tipo;Descrição
+NUMERODO;text;Número da DO, seqüencial por UF informante e por ano
+TIPOBITO;int8;Tipo do óbito:1: óbito fetal2: óbito não fetal
+def_tipo_obito;text;Tipo de óbito (Nominal, com as seguintes classificações: Fetal e Não Fetal)
+DTOBITO;text;Data do óbito, no formato ddmmaaaa
+data_obito;date;Data de ocorrência do óbito
+ano_obito;int8;Ano do óbito
+dia_semana_obito;text;Dia da semana em que ocorreu o óbito
+NATURAL;int8;Naturalidade, conforme a tabela de países. Se for brasileiro,porém, o primeiro dígito contém 8 e os demais o código daUF de naturalidade
+DTNASC;text;Data de nascimento do falecido no formato ddmmaaaa
+data_nasc;date;Data de nascimento
+idade_obito_calculado;int8;Idade do óbito calculado utilizando a data de óbito e a data denascimento
+ano_nasc;int8;Ano do nascimento
+dia_semana_nasc;text;Dia da semana em que ocorreu o nascimento
+IDADE;int4;Idade, composto de dois subcampos. O primeiro, de 1dígito, indica a unidade da idade, conforme a tabela aseguir. O segundo, de dois dígitos, indica a quantidade deunidades:0: Idade ignorada, o segundo subcampo e1: Horas, o segundo subcampo varia de 01 a 232: Dias, o segundo subcampo varia de 01 a 293: Meses, o segundo subcampo varia de 01 a 114: Anos, o segundo subcampo varia de 00 a 995: Anos (mais de 100 anos), o segundo subcampo varia de0 a 99, exemplos:000: Idade ignorada020: 20 minutos103: 3 horas204: 4 dias305: 5 meses400: menor de 1 ano, mas não se sabe o numero de horas,dias ou meses410: 10 anos505: 105 anos
+idade_obito_anos;int8;Idade do óbito (em anos) informada na declaração de óbito
+idade_obito_meses;int8;Idade do óbito (em meses) informada na declaração de óbito
+idade_obito_dias;int8;Idade do óbito (em dias) informada na declaração de óbito
+idade_obito_horas;int8;Idade do óbito (em horas) informada na declaração de óbito
+idade_obito_mins;int8;Idade do óbito (em minutos) informada na declaração de óbito
+SEXO;int8;Sexo, conforme a tabela:0: Ignorado1: Masculino2: Feminino
+def_sexo;text;"Sexo (Nominal, com as seguintes classificações: Masculino; Feminino; Ignorado)"
+RACACOR;int8;Raça/Cor:1: Branca2: Preta3: Amarela4: Parda5: Indígena
+def_raca_cor;text;"Raça/cor (Nominal, com as seguintes classificações: Branca; Preta; Amarela; Parda; Indígena)"
+ESTCIV;int8;Estado civil, conforme a tabela:1: Solteiro2: Casado3: Viúvo4: Separado judicialmente5: União consensual (versões anteriores)9: Ignorado
+def_est_civil;text;"Estado civil (Nominal, com as seguintes classificações: Solteiro;Casado; Viúvo; Separado Judicialmente/divorciado; União Estável;Ignorado)"
+ESC;int8;Escolaridade, Anos de estudo concluídos:1: Nenhuma2: 1 a 3 anos3: 4 a 7 anos4: 8 a 11 anos5: 12 e mais9: Ignorado
+def_escol;text;"Escolaridade (Nominal, com as seguintes classificações: Nenhuma; de 1 a 3 anos; de 4 a 7 anos; de 8 a 11 anos; 12 e mais; Ignorado)"
+OCUP;int8;Ocupação, conforme a Classificação Brasileira deOcupações (CBO-2002)
+CODBAIRES;text;Código do Bairro de residência
+CODMUNRES;int8;Município de residência do falecido, conforme códigos IBGE
+LOCOCOR;int8;Local de ocorrência do óbito, conforme a tabela:9: Ignorado1: Hospital2: Outro estab saúde3: Domicílio4: Via Pública5: Outros
+def_loc_ocor;text;"Local de ocorrência do óbito (Nominal, com as seguintes classificações: Hospital; Outros estabelecimentos de saúde; Domicílio; Via pública; Outros; Ignorado)"
+CODMUNOCOR;int8;Município de ocorrência do óbito, conforme códigos IBGE
+IDADEMAE;int8;Idade da mãe em anos
+ESCMAE;int8;Escolaridade da mãe, Anos de estudo concluídos:1: Nenhuma2: 1 a 3 anos3: 4 a 7 anos4: 8 a 11 anos5: 12 e mais9: Ignorado
+def_escol_mae;text;"Escolaridade da mãe (Nominal, com as seguintes classificações: Nenhuma; de 1 a 3 anos; de 4 a 7 anos; de 8 a 11 anos; 12 e mais; Ignorado)"
+OCUPMAE;int8;Ocupação da mãe, conforme codificação de OCUPAÇÃO
+QTDFILVIVO;int8;Número de filhos vivos
+QTDFILMORT;int8;Número de filhos mortos, ignorados, não incluindo opróprio
+GRAVIDEZ;int8;Tipo de gravidez, conforme a tabela:9: Ignorado1: Única2: Dupla3: Tripla e mais
+def_gravidez;text;"Tipo de gravidez (Nominal, com as seguintes classificações: Única; Dupla; Tripla e mais; Ignorada)"
+GESTACAO;int8;Semanas de gestação, conforme a tabela:9: Ignorado1: Menos de 22 semanas2: 22 a 27 semanas3: 28 a 31 semanas4: 32 a 36 semanas5: 37 a 41 semanas6: 42 semanas e mais
+def_gestacao;text;"Semanas de gestação (Nominal, com as seguintes classificações: Ignorado; Menos de 22 semanas; 22 a 27 semanas; 28 a 31 semanas; 32 a 36 semanas; 37 a 41 semanas; 42 semanas e mais)"
+PARTO;int8;Tipo de parto, conforme a tabela:9: Ignorado1: Vaginal2: Cesáreo
+def_parto;text;"Tipo de parto (Nominal, com as seguintes classificações: Vaginal;Cesáreo; Ignorado)"
+OBITOPARTO;int8;Morte em relação ao parto, conforme tabela:9: Ignorado1: Antes2: Durante3: Depois
+def_obito_parto;text;"Indicação de como foi a morte em relação ao parto (Nominal, com as seguintes classificações: Antes; Durante; Depois; Ignorado)"
+PESO;int8;Peso ao nascer, em gramas
+OBITOGRAV;int8;Morte durante a Gravidez conforme tabela:9: Ignorado1: Sim2: Não
+def_obito_grav;text;"Indicação de ocorrência do óbito durante a gravidez (Nominal, com as seguintes classificações: Sim; Não; Ignorado)"
+OBITOPUERP;int8;Morte durante o puerpério, conforme tabela:9: Ignorado1: Sim, até 42 dias2: Sim, de 43 dias a 01 ano3: Não
+def_obito_puerp;text;"Indicação de óbito no puerpério (Nominal, com as seguintesclassificações: Sim, até 42 dias após o parto; Sim, de 43 dias a 01 anos; Não; Ignorado)"
+ASSISTMED;int8;Indica se houve assistência medica, conforme a tabela:9: Ignorado1: Com assistência2: Sem assistência
+def_assist_med;text;"Assistência médica (Nominal, com as seguintes classificações: Com assistência; Sem assistência; Ignorado)"
+EXAME;int8;Indica se houve exame complementar, conforme a tabela:9: Ignorado1: Sim2: Não
+def_exame;text;"Indicação de realização de exame (Nominal, com as seguintesclassificações: Sim; Não; Ignorado)"
+CIRURGIA;int8;Indica se houve cirurgia, conforme a tabela:9: Ignorado1: Sim2: Não
+def_cirurgia;text;"Indica se houve cirurgia (Nominal, com as seguintesclassificações: Sim; Não; Ignorado)"
+NECROPSIA;int8;Indica se houve necrópsia, conforme a tabela:9: Ignorado1: Sim2: Não
+def_necropsia;text;"Confirmação do diagnóstico por necrópsia (Nominal, com as seguintes classificações: Sim; Não; Ignorado)"
+CAUSABAS;text;Causa básica, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+LINHAA;text;Linha A do atestado, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+LINHAB;text;Linha B do atestado, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+LINHAC;text;Linha C do atestado, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+LINHAD;text;Linha D do atestado, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+LINHAII;text;Linha II do atestado, conforme a Classificação Internacional de Doença (CID), 10a. Revisão
+CIRCOBITO;int8;Indica o tipo de acidente, se cabível:9: Ignorado1: Acidente2: Suicídio3: Homicídio4: Outros
+def_circ_obito;text;"Indicação da provável circunstância de morte não natural (Nominal, com as seguintes classificações: Acidente; Suicídio; Homicídio; Outros; Ignorado)"
+ACIDTRAB;int8;Indica se foi acidente de trabalho, conforme a tabela:9: Ignorado1: Sim2: Não
+def_acid_trab;text;"Indicação de ocorrência de acidente de trabalho (Nominal, com as seguintes classificações: Sim; Não; Ignorado)"
+FONTE;int8;Fonte da informação, conforme a tabela:9: Ignorado1: Boletim de Ocorrência2: Hospital3: Família4: Outra
+def_fonte;text;"Fonte de informação (Nominal, com as seguintes classificações: Boletim de Ocorrência; Hospital; Família; Outra; Ignorado)"
+CODINST;text;Código da instalação da geração dos registros
+NUMERODV;int8;Número do Dígito Verificador
+ORIGEM;int8;
+HORAOBITO;text;Horário do óbito
+NUMSUS;text;Número do cartão SUS
+CODMUNNATU;int8;Código do município de naturalidade do falecido
+ESC2010;int8;"Escolaridade 2010. Valores: 0 – Sem escolaridade; 1 – FundamentalI (1a a 4a série); 2 – Fundamental II (5a a 8a série); 3 – Médio(antigo 2o Grau); 4 – Superior incompleto; 5 – Superior completo; 9– Ignorado."
+SERIESCFAL;int8;Série escolar do falecido. Valores de 1 a 8.
+CODESTAB;text;Código do estabelecimento
+ESTABDESCR;text;
+ESCMAE2010;int8;"Escolaridade 2010. Valores: 0 – Sem escolaridade; 1 – FundamentalI (1a a 4a série); 2 – Fundamental II (5a a 8a série); 3 – Médio(antigo 2o Grau); 4 – Superior incompleto; 5 – Superior completo; 9– Ignorado."
+SERIESCMAE;int8;Série escolar da mãe. Valores de 1 a 8.
+SEMAGESTAC;int8;Semanas de gestação
+NUMERODN;text;Número da Declaração de Nascimento
+TPMORTEOCO;int8;"Informar quando a morte ocorreu: 1 – na gravidez; 2 – no parto; 3– no aborto; 4 – até 42 dias após o parto; 5 – de 43 dias a 1 anoapós o parto; 8 – não ocorreu nestes períodos; 9 – ignorado."
+CB_PRE;text;Causa selecionada sem re-seleção (novo SCB)
+CRM;int8;No do CRM
+COMUNSVOIM;int8;Código do município do SVO ou do IML
+DTATESTADO;text;Data do Atestado
+NUMEROLOTE;int8;Número do lote
+TPPOS;text;Óbito investigado 1-Sim, 2- Não
+DTINVESTIG;text;Data de investigação
+CAUSABAS_O;text;Causa básica original, a primeira informação que entra nosistema
+DTCADASTRO;text;Data de cadastro do registro no sistema
+ATESTANTE;int8;Indica se o médico que assina atendeu o paciente:1: Sim2: Substituto3: IML4: SVO5: Outros
+STCODIFICA;text;Status de instalação: se codificadora (valor: S) ou não (valor: N)
+CODIFICADO;text;Se estiver codificado (valor: S) ou não (valor: N)
+VERSAOSIST;text;Versão do sistema
+VERSAOSCB;float8;Versão do seletor de causa básica
+FONTEINV;int8;Fonte de investigação:1: Comitê de Morte Materna e/ou Infantil2: Visita domiciliar / Entrevista família3: Estab Saúde / Prontuário4: Relacion com outros bancos de dados5: S V O6: I M L7: Outra fonte8: Múltiplas fontes9: Ignorado
+DTRECEBIM;text;Data de recebimento no nível central, data da última atualização do registro
+ATESTADO;text;CIDs informado no atestado
+DTRECORIGA;text;Data do recebimento original: dd mm aaaa
+CAUSAMAT;text;Causa externa associada a uma causa materna
+ESCMAEAGR1;text;"Escolaridade 2010 agregada. Valores: 00 – Sem Escolaridade; 01 –Fundamental I Incompleto; 02 – Fundamental I Completo; 03 –Fundamental II Incompleto; 04 – Fundamental II Completo; 05 –Ensino Médio Incompleto; 06 – Ensino Médio Completo; 07 –Superior Incompleto; 08 – Superior Completo; 09 – Ignorado; 10 –Fundamental I Incompleto ou Inespecífico; 11 – Fundamental IIIncompleto ou Inespecífico; 12 – Ensino Médio Incompleto ouInespecífico."
+ESCFALAGR1;text;"Escolaridade 2010 agregada. Valores: 00 – Sem Escolaridade; 01 –Fundamental I Incompleto; 02 – Fundamental I Completo; 03 –Fundamental II Incompleto; 04 – Fundamental II Completo; 05 –Ensino Médio Incompleto; 06 – Ensino Médio Completo; 07 –Superior Incompleto; 08 – Superior Completo; 09 – Ignorado; 10 –Fundamental I Incompleto ou Inespecífico; 11 – Fundamental IIIncompleto ou Inespecífico; 12 – Ensino Médio Incompleto ouInespecífico."
+STDOEPIDEM;int8;"Status de DO Epidemiológica. Valores: 1 – SIM; 0 – NÃO."
+STDONOVA;int8;"Status de DO Nova. Valores: 1 – SIM; 0 – NÃO."
+DIFDATA;text;Diferença entre a data de óbito e data do recebimento original daDO ([DTOBITO] – [DTRECORIG])
+NUDIASOBCO;text;
+NUDIASOBIN;text;
+DTCADINV;text;
+TPOBITOCOR;int8;
+DTCONINV;text;
+FONTES;text;
+TPRESGINFO;int8;
+TPNIVELINV;text;
+NUDIASINF;text;
+DTCADINF;text;
+MORTEPARTO;int8;
+DTCONCASO;text;
+FONTESINF;text;
+ALTCAUSA;int8;
+res_MUNNOME;text;Nome (acentuado, maiúsculas e minúsculas) do Município (padrão DOS, página de código 850) de residência da pessoa que foi à óbito
+res_MUNNOMEX;text;Nome (sem acentos, em maiúsculas) do Município de residência da pessoa que foi à óbito
+res_AMAZONIA;text;Indica (S ou N) se o município de residência da pessoa que foi à óbito faz parte da Amazônia Legal (conforme IBGE)
+res_FRONTEIRA;text;Indica (S ou N) se o município de residência da pessoa que foi à óbito faz parte da faixa de fronteira (conforme IBGE)
+res_CAPITAL;text;Indica (S ou N) se o município de residência da pessoa que foi à óbito é capital da UF
+res_MSAUDCOD;int8;Código da Macrorregional de Saúde a que o Município de residência da pessoa que foi à óbito pertence
+res_RSAUDCOD;int8;Código da Regional de Saúde a que o Município de residência da pessoa que foi à óbito pertence
+res_CSAUDCOD;int8;Código da Microrregional de Saúde a que o Município de residência da pessoa que foi à óbito pertence
+res_LATITUDE;float8;Latitude da sede do Município de residência da pessoa que foi à óbito
+res_LONGITUDE;float8;Longitude da sede do Município de residência da pessoa que foi à óbito
+res_ALTITUDE;int8;Altitude, em metros, da sede do Município de residência da pessoa que foi à óbito
+res_AREA;float8;Área, em quilômetros quadrados, do Município de residência da pessoa que foi à óbito, segundo a Resolução 05, de 10/12/2002, do IBGE
+res_codigo_adotado;int8;Armazena o código atribuído ao município de residência da pessoa que foi à óbito, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo
+ocor_MUNNOME;text;Nome (acentuado, maiúsculas e minúsculas) do Município (padrão DOS, página de código 850) de ocorrência do óbito
+ocor_MUNNOMEX;text;Nome (sem acentos, em maiúsculas) do Município de ocorrência do óbito
+ocor_AMAZONIA;text;Indica (S ou N) se o município de ocorrência do óbito faz parte da Amazônia Legal (conforme IBGE)
+ocor_FRONTEIRA;text;Indica (S ou N) se o município de ocorrência do óbito faz parte da faixa de fronteira (conforme IBGE)
+ocor_CAPITAL;text;Indica (S ou N) se o município de ocorrência do óbito é capital da UF
+ocor_MSAUDCOD;int8;Código da Macrorregional de Saúde a que o Município de ocorrência do óbito pertence
+ocor_RSAUDCOD;int8;Código da Regional de Saúde a que o Município de ocorrência do óbito pertence
+ocor_CSAUDCOD;int8;Código da Microrregional de Saúde a que o Município de ocorrência do óbito pertence
+ocor_LATITUDE;float8;Latitude da sede do Município de ocorrência do óbito
+ocor_LONGITUDE;float8;Longitude da sede do Município de ocorrência do óbito
+ocor_ALTITUDE;int8;Altitude, em metros, da sede do Município de ocorrência do óbito
+ocor_AREA;float8;Área, em quilômetros quadrados, do Município de ocorrência do óbito, segundo a Resolução 05, de 10/12/2002, do IBGE
+ocor_codigo_adotado;int8;Armazena o código atribuído ao município de ocorrência do óbito, tratando os casos em que múltiplos códigos tenham sido utilizados para um mesmo município ao longo do tempo
+res_SIGLA_UF;text;Sigla da unidade da federação de residência da pessoa que foi à óbito
+res_CODIGO_UF;int8;Código IBGE da Unidade da Federação de residência da pessoa que foi à óbito
+res_NOME_UF;text;Nome da unidade da federação de residência da pessoa que foi à óbito
+ocor_SIGLA_UF;text;Sigla da unidade da federação de ocorrência do óbito
+ocor_CODIGO_UF;int8;Código IBGE da Unidade da Federação de ocorrência do óbito
+ocor_NOME_UF;text;Nome da unidade da federação de ocorrência do óbito
+res_REGIAO;text;Nome da região da unidade da federação de residência do falecido
+ocor_REGIAO;text;Nome da região da unidade da federação de ocorrência do óbito
+causabas_capitulo;text;Capítulo CID-10 da causa base do óbito
+causabas_grupo;text;Grupo CID-10 da causa base do óbito
+causabas_categoria;text;Categoria CID-10 da causa base do óbito
+causabas_subcategoria;text;Subcategoria CID-10 da causa base do óbito
+res_coordenadas;text;Coordenadas do município de residência da pessoa que foi à óbito
+ocor_coordenadas;text;Coordenadas do município de ocorrência do óbito
