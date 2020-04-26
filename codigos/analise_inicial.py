@@ -29,7 +29,6 @@ for i in range(len(dic_variaveis)):
     if not np.isnan(nulo):
         df[coluna] = df[coluna].replace({nulo: np.nan})
 
-# %%
 colunas_apagar = []
 total_linhas = df.shape[0]
 perc_nulo_max = 0.4
@@ -49,20 +48,55 @@ for c in df:
 
 # %%
 sm = SOMFactory().build(df.values,
-                        [20, 20],
+                        [50, 50],
                         mask=None, mapshape='planar',
                         lattice='rect',
                         normalization='var',
                         initialization='pca',
                         component_names=list(df.columns))
 
-sm.train(n_job=-1, verbose='info', train_rough_len=20, train_finetune_len=20)
+sm.train(n_job=-1, verbose='info', train_rough_len=50, train_finetune_len=30)
 
 topographic_error = sm.calculate_topographic_error()
 quantization_error = np.mean(sm._bmu[1])
 print("Topographic error = {0}; Quantization error = {1}".format(
     topographic_error, quantization_error))
 
-# %%
 view2D = sompy.mapview.View2D(100, 100, "rand data", text_size=14)
-view2D.show(sm, col_sz=2, which_dim="all", denormalize=True)
+view2D.show(sm, col_sz=5, which_dim="all", denormalize=True)
+
+# %%
+colunas_apagar = [
+    'TIPOBITO',
+    'data_obito',
+    'data_nasc',
+    'res_MSAUDCOD',
+    'res_RSAUDCOD',
+    'ocor_MSAUDCOD',
+    'ocor_RSAUDCOD',
+    'res_SIGLA_UF',
+    'res_NOME_UF',
+    'ocor_SIGLA_UF',
+    'ocor_NOME_UF',
+    'causabas_subcategoria',
+    ]
+df = df.drop(columns=colunas_apagar)
+
+# %%
+sm = SOMFactory().build(df.values,
+                        [50, 50],
+                        mask=None, mapshape='planar',
+                        lattice='rect',
+                        normalization='var',
+                        initialization='pca',
+                        component_names=list(df.columns))
+
+sm.train(n_job=-1, verbose='info', train_rough_len=50, train_finetune_len=30)
+
+topographic_error = sm.calculate_topographic_error()
+quantization_error = np.mean(sm._bmu[1])
+print("Topographic error = {0}; Quantization error = {1}".format(
+    topographic_error, quantization_error))
+
+view2D = sompy.mapview.View2D(100, 100, "rand data", text_size=14)
+view2D.show(sm, col_sz=5, which_dim="all", denormalize=True)
