@@ -9,6 +9,7 @@ from sompy.sompy import SOMFactory
 import sompy
 import pandas as pd
 import numpy as np
+from sklearn.preprocessing import OrdinalEncoder
 pd.set_option('display.max_columns', 200)
 pd.set_option('display.max_rows', 100)
 
@@ -29,7 +30,6 @@ for i in range(len(dic_variaveis)):
         df[coluna] = df[coluna].replace({nulo: np.nan})
 
 # %%
-
 colunas_apagar = []
 total_linhas = df.shape[0]
 perc_nulo_max = 0.4
@@ -42,18 +42,19 @@ df = df.drop(columns=colunas_apagar)
 df = df.dropna()
 
 # %%
-data = df[['idade_obito_calculado',
-           'ocor_LATITUDE', 'ocor_LONGITUDE', 'ocor_ALTITUDE',
-           'SEXO', 'RACACOR', 'ESTCIV', 'ESC']]
+for c in df:
+    if df[c].dtype == 'object':
+        encoder = OrdinalEncoder()
+        df[c] = encoder.fit_transform(df[c].values.reshape(-1, 1))
 
 # %%
-sm = SOMFactory().build(data.values,
+sm = SOMFactory().build(df.values,
                         [20, 20],
                         mask=None, mapshape='planar',
                         lattice='rect',
                         normalization='var',
                         initialization='pca',
-                        component_names=list(data.columns))
+                        component_names=list(df.columns))
 
 sm.train(n_job=-1, verbose='info', train_rough_len=20, train_finetune_len=20)
 
