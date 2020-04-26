@@ -4,7 +4,7 @@ TIPOBITO;;
 def_tipo_obito;x;
 DTOBITO;x;
 data_obito;;
-ano_obito;x;
+ano_obito;;
 dia_semana_obito;;
 NATURAL;;
 DTNASC;x;
